@@ -1,6 +1,6 @@
 <?php
 
-
+use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/tasks',function(){
     $data=App\Task:all();
-return view('tasks')->with('tasks',data);
+return view('tasks')->with('tasks',$data);
 });
 
 Route::post('/saveTask', 'TaskController@store');
@@ -34,4 +34,4 @@ Route::get('/deletetask/{id}','TaskController@deletetask');
 
 Route::get('/updatetask/{id}', 'TaskController@updatetaskview');
 
-Route::post('/updatetasks','TaskController@updatetasks');
+Route::post('/updatetasks','TaskController@updatetask');
